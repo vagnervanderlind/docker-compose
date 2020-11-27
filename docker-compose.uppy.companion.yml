@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  uppy_companion:
+    container_name: uppy_companion_container
+    image: transloadit/companion
+    environment:
+      - NODE_ENV=development
+      - COMPANION_SECRET=YourSecret
+      - COMPANION_DOMAIN=localhost:3020
+      - COMPANION_DATADIR=/mnt/uppy-server-data
+      - COMPANION_GOOGLE_KEY=YourGoogleKey
+      - COMPANION_GOOGLE_SECRET=YourGoogleSecret
+    volumes:
+      - /mnt/uppy-server-data:/mnt/uppy-server-data
+    ports:
+      - "3020:3020"
